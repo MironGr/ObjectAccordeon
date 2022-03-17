@@ -24,7 +24,6 @@ export const Item = ({obj, header, children}) => {
           </div>}
         {keysArr?.map(value => {
           if(typeof obj[value] === 'object' && typeof obj[value] !== null) {
-            console.log('obj[value] - ', obj[value])
             return <div className={classNames(
               {'item-accordeon-disable': !isShow}
             )}
