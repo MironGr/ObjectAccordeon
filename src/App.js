@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
+import './App.css'
+import { Item } from './Item'
+
+import { obj } from './object'
+
+const App = () => {
+
+  const keysArr = Object.keys(obj)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      <h1>Раскрывающиеся объекты</h1>
+      {keysArr.map(value => {
+        if(typeof obj[value] === 'object' && typeof obj[value] !== null) {
+          console.log('obj[value] - ', obj[value])
+          return <Item key={value} obj={obj[value]} header={value}/>
+        } else {
+          return (
+            <Item 
+              key={value}
+              children={`${value}: ${obj[value]}`}
+            />
+          )
+        }
+      })}
     </div>
-  );
+  )
 }
 
 export default App;
