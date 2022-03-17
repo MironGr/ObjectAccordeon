@@ -27,16 +27,19 @@ export const Item = ({obj, header, children}) => {
             console.log('obj[value] - ', obj[value])
             return <div className={classNames(
               {'item-accordeon-disable': !isShow}
-            )}>
-            <Item key={value} obj={obj[value]} header={value}/>
+            )}
+              key={value}
+            >
+            <Item obj={obj[value]} header={value}/>
             </div>
           } else {
             return (
               <div className={classNames(
                 {'item-accordeon-disable': !isShow}
-              )}>
-                <Item 
-                  key={value}
+              )}
+                key={value}
+              >
+                <Item
                   children={`${value}: ${obj[value]}`}
                 />
               </div>
