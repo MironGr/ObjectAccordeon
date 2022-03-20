@@ -24,12 +24,16 @@ export const Item = ({obj, header, children}) => {
           </div>}
         {keysArr?.map(value => {
           if(typeof obj[value] === 'object' && typeof obj[value] !== null) {
+            let header = `${obj[value]['id']} - ${obj[value]['name']}`
+            if(Array.isArray(obj[value])) {
+              header = value
+            }
             return <div className={classNames(
               {'item-accordeon-disable': !isShow}
             )}
               key={value}
             >
-            <Item obj={obj[value]} header={value}/>
+              <Item key={value} obj={obj[value]} header={header}/>
             </div>
           } else {
             return (
@@ -39,6 +43,7 @@ export const Item = ({obj, header, children}) => {
                 key={value}
               >
                 <Item
+                  key={value}
                   children={`${value}: ${obj[value]}`}
                 />
               </div>

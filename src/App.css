@@ -39,10 +39,6 @@ button {
   width: inherit;
 }
 
-.item-root .item-accordeon {
-  width: inherit;
-}
-
 .item-accordeon-show {
   display: none;
 }
@@ -64,15 +60,6 @@ button {
   padding: 3px 0;
 
   width: 40vw;
-}
-
-.app > .item {
-  margin: 10px 30px;
-  display: block;
-}
-
-.item-root .item {
-  width: inherit;
 }
 
 .item-hide {
